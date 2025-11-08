@@ -1,0 +1,36 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation (internal)
+.local/
+
+# Documentation (kept in image for reference)
+# README.md
+# CHANGELOG.md
+# LICENSE
+
+# Development files
+*.md~
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.iml
+

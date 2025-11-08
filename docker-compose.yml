@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+да  rclone-watch:
+    build: .
+    container_name: rclone-watch
+    restart: unless-stopped
+    environment:
+      # Required
+      - WATCH_DIR=/watch
+      - RCLONE_REMOTE
+      
+      # rclone config (format: RCLONE_CONFIG_{REMOTE_NAME}_{PARAMETER})
+      # See README.md for examples: S3, Google Drive, Backblaze B2, etc.
+      - RCLONE_CONFIG_MYREMOTE_TYPE
+      - RCLONE_CONFIG_MYREMOTE_PROVIDER
+      - RCLONE_CONFIG_MYREMOTE_ENV_AUTH
+      - RCLONE_CONFIG_MYREMOTE_ACCESS_KEY_ID
+      - RCLONE_CONFIG_MYREMOTE_SECRET_ACCESS_KEY
+      - RCLONE_CONFIG_MYREMOTE_ENDPOINT
+      - RCLONE_CONFIG_MYREMOTE_REGION
+      
+      # Optional
+      - S3_PREFIX
+      - UPLOAD_DELAY
+      - DRY_RUN
+      - MAX_PARALLEL
+    volumes:
+      - ${WATCH_PATH}:/watch:ro
+
